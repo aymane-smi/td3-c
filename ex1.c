@@ -36,7 +36,7 @@ void main(){
 			case 4:
 				for(i;i<n;i++){
 					if(t[i] < 0)
-						printf("t[%d]=%f est négative\n", i, t[i]);
+						printf("t[%d]=%f est n?ative\n", i, t[i]);
 				}
 				break;
 			case 5:
@@ -91,7 +91,7 @@ void main(){
 						scanf("%d", &k);
 					}while(k<0 && k>n );
 					printf("nouvelle valeur:");
-					scanf("%f", z);
+					scanf("%f", &z);
 				    t[k] = z;
 					break;
 			case 10:
@@ -99,7 +99,7 @@ void main(){
 						printf("entre votre indice preferable:");
 						scanf("%d", &k);
 					}while(k<0 && k>n );
-					t[k] = "";
+					t[k] = 0.0;
 					break;
         }
         }while(choix == 0);
