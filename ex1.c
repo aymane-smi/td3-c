@@ -36,7 +36,7 @@ void main(){
 			case 4:
 				for(i;i<n;i++){
 					if(t[i] < 0)
-						printf("t[%d]=%f est négative\n", i, t[i]);
+						printf("t[%d]=%f est nÃ©gative\n", i, t[i]);
 				}
 				break;
 			case 5:
