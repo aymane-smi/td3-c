@@ -16,10 +16,11 @@ void main(){
 		scanf("%d", &choix);
 		switch(choix){
 			case 1:
-			    for(i;i<n;i++)
+			    for(i=0;i<n;i++)
 			    	printf("t[%d]=%f\n", i, t[i]);
 			        break;
 		    case 2:
+		        i=0;
 	            while(i<n){
 	            	s += t[i];
 	            	i++;
@@ -28,24 +29,25 @@ void main(){
 	            printf("la somme est:%f, la moyenne est:%f\n", s, m);
 	            break;
 		    case 3:
-	            for(i;i<n;i++){
+	            for(i=0;i<n;i++){
 	            	if(t[i] > 0)
 	            		printf("t[%d]=%f est positive\n", i, t[i]);
 	            	}
 	            	break;
 			case 4:
-				for(i;i<n;i++){
+				for(i=0;i<n;i++){
 					if(t[i] < 0)
 						printf("t[%d]=%f est n?ative\n", i, t[i]);
 				}
 				break;
 			case 5:
-				for(i;i<n;i++){
+				for(i=0;i<n;i++){
 					if(t[i] >= max){
 						max = t[i];
 					}
 				}
 				printf("le max est %f\n", max);
+				i=0;
 				while(i<n){
 					if(t[i] == max)
 						printf("t[%d] est un max\n", i);
@@ -54,12 +56,13 @@ void main(){
 				break;
 			case 6:
 				min = t[0];
-                 for(i;i<n;i++){
+                 for(i=0;i<n;i++){
 					if(t[i] <= min){
 						min = t[i];
 					}
 				}
 				printf("le min est %f\n", min);
+				i=0;
 				while(i<n){
 					if(t[i] == min)
 						printf("t[%d] est un min\n", i);
@@ -67,7 +70,7 @@ void main(){
 				}
 				break;
 			case 7:
-				for(i;i<n;i++){
+				for(i=0;i<n;i++){
 					for(j=(n-1);j >= 0;j--){
 						if(t[i] > t[j]){
 								x = t[i];
@@ -102,5 +105,5 @@ void main(){
 					t[k] = 0.0;
 					break;
         }
-        }while(choix == 0);
+        }while(choix != 0);
 	}
