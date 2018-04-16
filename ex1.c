@@ -1,8 +1,19 @@
 //exercice 1
 #include<stdio.h>
+#include<stdlib.h>
 void main(){
+	#if defined(_WIN32) || defined(_WIN64)
+        const char* os = "Windose";
+    #else
+    #ifdef __linux
+        const char* os = "Linux";
+    #else
+        const char* os = "Unknown";
+    #endif
+    #endif
+        ////////////////////////////
 	float t[20], s= 0.0, m, max=0.0, min, x, z;
-	int n, i=0, choix, j, k;
+	int n, i=0, choix, j, k, b;
 	do{
 		printf("nombre de valeur que voulez entrer:");
 		scanf("%d", &n);
@@ -12,7 +23,7 @@ void main(){
 			scanf("%f", &t[i]);
 		}
 	do{
-		printf("0-quitter\n1-affichage\n2-somme et moyenne\n3-positive\n4-negative\n5-max\n6-min\n7-ordre croissant\n8-recherche\n9-remplacer\n10-suppression\n11-ajout\nvotre choix est:");
+		printf("0-quitter\n1-affichage\n2-somme et moyenne\n3-positive\n4-negative\n5-max\n6-min\n7-ordre croissant\n8-recherche\n9-remplacer\n10-suppression\n11-ajouter\n12-efaccer\nvotre choix est:");
 		scanf("%d", &choix);
 		switch(choix){
 			case 1:
@@ -70,16 +81,23 @@ void main(){
 				}
 				break;
 			case 7:
-				for(i=0;i<n;i++){
-					for(j=(n-1);j >= 0;j--){
-						if(t[i] > t[j]){
-								x = t[i];
-								t[i] = t[j];
-								t[j] = x;
-							}
-					}
-					printf("t[%d]=%f\n", i, t[i]);
-				}
+				k = 0;
+			    while(b){
+			    	b = 0;
+					k ++;
+			    	for(i=0;i<n-k;i++){
+			    		j = i+1;
+			    		b = 1;
+			    		if(t[i] > t[j]){
+			    			x = t[i];
+			    			t[i] = t[j];
+			    			t[j] = x; 
+			    		}
+			    	}
+			    }
+			    for(i=0;i<n;i++){
+			    	printf("t[%d]=%f\n", i, t[i]);
+			    }
 				break;
 			case 8:
 					do{
@@ -104,6 +122,21 @@ void main(){
 					}while(k<0 && k>n );
 					t[k] = 0.0;
 					break;
+			case 11:
+				    i = n+1;
+				    for(i;i<=20;i++){
+				    	if(t[i] == 0){
+				    		printf("enter une valeur:");
+				    		scanf("%f", &t[i]);
+				    		break;
+				    	}
+				    }
+				    break;
+			case 12:
+			    if(os == "Windose")
+			    	system("cls");
+			    else if( os == "Linux")
+			    	system("clear");
         }
         }while(choix != 0);
 	}
